@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../config/db');
 const reservaController = require('../controllers/reservaController');
 
 // Rota GET para exibir a página de reserva
@@ -7,8 +8,11 @@ router.get('/reserva', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/views/reserva.html'));
 });
 
-// Rota para consulta de disponibilidade
-router.get('/disponibilidade', reservaController.consultarDisponibilidade);
+// Rota para buscar os tipos de quarto
+router.get('/tipos-quarto', reservaController.getTiposQuarto);
+
+router.post('/disponibilidade', reservaController.consultarDisponibilidade);
+
 
 // Rota para fazer reserva
 router.post('/fazer-reserva', reservaController.fazerReserva);

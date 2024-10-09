@@ -18,7 +18,9 @@
     <input type="date" id="checkout" name="checkout" required>
 
     <label for="categoria">Categoria do Quarto:</label>
-    <input type="text" id="categoria" name="categoria" required>
+    <select id="categoria" name="categoria" required>
+      <option value="">Selecione uma categoria</option>
+    </select>
 
     <button type="submit">Consultar Disponibilidade</button>
   </form>
@@ -70,24 +72,47 @@
   <div id="resultado-pacote"></div>
 
   <script>
-    // Consulta de Disponibilidade
-    document.getElementById('form-disponibilidade').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const checkin = document.getElementById('checkin').value;
-      const checkout = document.getElementById('checkout').value;
-      const categoria = document.getElementById('categoria').value;
-
-      fetch(`/reservas/disponibilidade?checkin=${checkin}&checkout=${checkout}&categoria=${categoria}`)
+    // Carregar opções de tipos de quarto
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('/reservas/tipos-quarto')
         .then(response => response.json())
         .then(data => {
-          const resultado = document.getElementById('resultado-disponibilidade');
-          resultado.innerHTML = data.length > 0 ? JSON.stringify(data) : 'Nenhum quarto disponível.';
+          const selectCategoria = document.getElementById('categoria');
+          data.forEach(tipo => {
+            const option = document.createElement('option');
+            option.value = tipo.id;
+            option.text = tipo.descricao;
+            selectCategoria.appendChild(option);
+          });
         })
         .catch(error => {
-          console.error('Erro:', error);
+          console.error('Erro ao carregar tipos de quarto:', error);
         });
     });
+
+    // Consulta de Disponibilidade
+document.getElementById('form-disponibilidade').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const checkin = document.getElementById('checkin').value;
+  const checkout = document.getElementById('checkout').value;
+  const categoria = document.getElementById('categoria').value;
+
+  fetch('/reservas/disponibilidade', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ dataCheckin: checkin, dataCheckout: checkout, tipoQuarto: categoria })
+  })
+  .then(response => response.json())
+  .then(data => {
+    const resultado = document.getElementById('resultado-disponibilidade');
+    resultado.innerHTML = data.quartos && data.quartos.length > 0 ? JSON.stringify(data) : 'Nenhum quarto disponível.';
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
+});
+
 
     // Fazer Reserva
     document.getElementById('form-reserva').addEventListener('submit', function(event) {
