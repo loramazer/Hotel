@@ -27,10 +27,13 @@ exports.cadastrar = async (req, res) => {
 
         db.query(sqlUsuario, [clienteId, email, hashedPassword], (err) => {
             if (err) throw err;
-            res.send('Cliente cadastrado com sucesso!');
+
+            // Redirecionar para a página de login com uma mensagem de sucesso
+            res.redirect('/login?mensagem=success');
         });
     });
 };
+
 
 // Função para realizar o login
 exports.loginCliente = (req, res) => {

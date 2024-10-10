@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1A2A1A;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* Containers */
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+/* Estilos para ambas as telas */
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+p {
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+    
+}
+.input-container input {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px 10px 10px 40px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    background-color: #1A2A1A;
+    color: white;
+    pointer-events: auto;
+}
+.input-container i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #4CAF50;
+}
+
+/* Botões */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.button {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+}
+.google-button i {
+    margin-right: 10px;
+}
+
+/* Links */
+.link {
+    margin-top: 20px;
+}
+.link a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+.link a:hover {
+    text-decoration: underline;
+}
+
+/* Background Shapes */
+.background-shape {
+    position: absolute;
+    background-color: #5A2A1A;
+    border-radius: 50%;
+}
+.background-shape.top-left {
+    top: -150px;
+    left: -150px;
+    width: 300px;
+    height: 300px;
+}
+.background-shape.bottom-right {
+    bottom: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+}
+
+.success-message {
+    color: green;
+    /* Cor verde para mensagens de sucesso */
+    margin-bottom: 15px;
+    /* Espaçamento inferior */
+    font-weight: bold;
+    /* Texto em negrito */
+}
+
+ .popup {
+     display: none;
+     /* Escondido por padrão */
+     position: fixed;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     background-color: white;
+     border-radius: 8px;
+     padding: 20px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     z-index: 1000;
+     color: black;
+ }
+
+ .popup.active {
+     display: block;
+     /* Exibe o popup quando ativo */
+ }
+
+ .popup .close {
+     cursor: pointer;
+     float: right;
+     font-size: 20px;
+     color: red;
+ }

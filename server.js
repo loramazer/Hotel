@@ -6,6 +6,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const cadastroRoutes = require('./routes/cadastro');
 const loginRoutes = require('./routes/login');
+
 const reservaRoutes = require('./routes/reserva');  // Importa a rota de reservas
 
 const app = express();
@@ -18,7 +19,6 @@ app.use(session({ secret: 'seu-segredo', resave: false, saveUninitialized: true 
 
 // Importar e usar o roteamento do cadastro
 app.use('/cadastro', cadastroRoutes);
-app.use('/login', loginRoutes);
 app.use('/reservas', reservaRoutes);  // Adiciona a rota de reservas
 
 
