@@ -1,12 +1,3 @@
-function showRegister() {
-            document.getElementById('login-container').classList.add('hidden');
-            document.getElementById('register-container').classList.remove('hidden');
-        }
-
-        function showLogin() {
-            document.getElementById('register-container').classList.add('hidden');
-            document.getElementById('login-container').classList.remove('hidden');
-        }
 
         // Verifica se há uma mensagem na URL
     const urlParams = new URLSearchParams(window.location.search);

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Registro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="styles/estilo1.css">
+</head>
+<body>
+    <!-- Background Shapes -->
+    <div class="background-shape top-left"></div>
+    <div class="background-shape bottom-right"></div>
+
+    <!-- Tela de Login -->
+    <div class="container" id="login-container">
+        <h1>Login</h1>
+        <p>Por favor insira seu usuário, email e senha</p>
+
+        <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Usuário ou Email" required>
+        </div>
+        <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Senha" required>
+        </div>
+        <div class="button-container">
+            <button class="button">Login</button>
+            <button class="button google-button">
+                <i class="fab fa-google"></i> Continue com o Google
+            </button>
+        </div>
+        <div class="link">
+            Não tem cadastro? <a href="cadastro.html" >Registre-se!</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

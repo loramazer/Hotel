@@ -10,33 +10,7 @@
 <body>
     <!-- Background Shapes -->
     <div class="background-shape top-left"></div>
-    <div class="background-shape bottom-right"></div>
-
-    <!-- Tela de Login -->
-    <div class="container" id="login-container">
-        <h1>Login</h1>
-        <p>Por favor insira seu usuário, email e senha</p>
-
-        <div class="input-container">
-            <i class="fas fa-user"></i>
-            <input type="text" placeholder="Usuário ou Email" required>
-        </div>
-        <div class="input-container">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Senha" required>
-        </div>
-        <div class="button-container">
-            <button class="button">Login</button>
-            <button class="button google-button">
-                <i class="fab fa-google"></i> Continue com o Google
-            </button>
-        </div>
-        <div class="link">
-            Não tem cadastro? <a href="#" onclick="showRegister()">Registre-se!</a>
-        </div>
-    </div>
-
-    
+    <div class="background-shape bottom-right"></div>    
 
     <!-- Popup de Mensagem de Sucesso -->
     <div class="popup" id="success-popup">
@@ -45,7 +19,7 @@
     </div>
 
     <!-- Tela de Registro -->
-    <div class="container hidden" id="register-container">
+    <div id="register-container">
         <h1>Cadastro</h1>
         <p>Por favor insira suas informações</p>
         <form id="cadastroCliente" action="/cadastro/cadastrar" method="POST">
@@ -90,7 +64,7 @@
             </div>
         </form>
         <div class="link">
-            Já tem uma conta? <a href="#" onclick="showLogin()">Login!</a>
+            Já tem uma conta? <a href="login.html">Login!</a>
         </div>
     </div>
     <script src="script.js"></script>
