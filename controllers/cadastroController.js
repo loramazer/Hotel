@@ -2,58 +2,58 @@ const db = require('../config/db');
 const bcrypt = require('bcrypt');
 
 // Função para cadastrar cliente
-exports.cadastrar = async (req, res) => {
-    const { nome, cpf, rg, endereco, telefone, email, data_nascimento, senha } = req.body;
+exports.cadastrarCliente = async (req, res) => {
+    const { nome, cpf, rg, endereco, telefone, email, data_nascimento, senha, senhaConfirmacao } = req.body;
 
-    if (!nome || !cpf || !telefone || !email || !senha) {
+    // Verificar se os campos obrigatórios estão preenchidos
+    if (!nome || !cpf || !telefone || !email || !senha || !senhaConfirmacao) {
         return res.status(400).send('Todos os campos obrigatórios devem ser preenchidos.');
     }
 
-    const hashedPassword = await bcrypt.hash(senha, 10);
+    // Verificar se a senha e a confirmação são iguais
+    if (senha !== senhaConfirmacao) {
+        return res.status(400).send('As senhas não coincidem.');
+    }
 
-    const sqlCliente = `
-        INSERT INTO Clientes (nome, cpf, rg, endereco, telefone, email, data_nascimento)
-        VALUES (?, ?, ?, ?, ?, ?, ?)`;
+    try {
+        // Criptografar a senha
+        const hashedPassword = await bcrypt.hash(senha, 10);
 
-    db.query(sqlCliente, [nome, cpf, rg, endereco, telefone, email, data_nascimento], (err, result) => {
-        if (err) throw err;
-        
-        const clienteId = result.insertId;
+        const sqlCliente = `
+            INSERT INTO Clientes (nome, cpf, rg, endereco, telefone, email, data_nascimento)
+            VALUES (?, ?, ?, ?, ?, ?, ?);
+        `;
 
-        // Cadastro do usuário
-        const sqlUsuario = `
-            INSERT INTO usuarios (cliente_id, email, senha)
-            VALUES (?, ?, ?)`;
-
-        db.query(sqlUsuario, [clienteId, email, hashedPassword], (err) => {
-            if (err) throw err;
-
-            // Redirecionar para a página de login com uma mensagem de sucesso
-            res.redirect('/login?mensagem=success');
-        });
-    });
-};
-
-
-// Função para realizar o login
-exports.loginCliente = (req, res) => {
-    const { email, senha } = req.body;
-
-    const sql = 'SELECT * FROM usuarios WHERE email = ?';
-    
-    db.query(sql, [email], async (err, results) => {
-        if (err) throw err;
-
-        if (results.length > 0) {
-            const usuario = results[0];
-            const match = await bcrypt.compare(senha, usuario.senha);
-            if (match) {
-                res.send('Login bem-sucedido!');
-            } else {
-                res.status(401).send('Senha incorreta!');
+        db.query(sqlCliente, [nome, cpf, rg, endereco, telefone, email, data_nascimento], (err, result) => {
+            if (err) {
+                console.error('Erro ao cadastrar cliente:', err);
+                return res.status(500).send('Erro ao cadastrar cliente');
             }
-        } else {
-            res.status(404).send('Usuário não encontrado!');
-        }
-    });
+
+            console.log('Cliente cadastrado com sucesso:', result.insertId);
+            const clienteId = result.insertId;
+
+            // Cadastro do usuário
+            const sqlUsuario = `
+                INSERT INTO usuarios (cliente_id, email, senha)
+                VALUES (?, ?, ?);
+            `;
+
+            db.query(sqlUsuario, [clienteId, email, hashedPassword], (errUsuario, resultUsuario) => {
+                if (errUsuario) {
+                    console.error('Erro ao cadastrar usuário:', errUsuario);
+                    return res.status(500).send('Erro ao cadastrar usuário');
+                } else {
+                    console.log('Usuário cadastrado com sucesso:', resultUsuario.insertId);
+
+                    // Redirecionar para a página de login com mensagem de sucesso
+                    req.flash('success', 'Cadastro realizado com sucesso!'); // Usando flash para mensagens
+                    return res.redirect('/login'); // Certifique-se de que a rota esteja correta
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Erro inesperado:', error);
+        return res.status(500).send('Erro inesperado durante o cadastro.');
+    }
 };

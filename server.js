@@ -1,5 +1,6 @@
 // server.js
 const express = require('express');
+const flash = require('connect-flash');
 const mysql = require('mysql2');
 const path = require('path');
 const session = require('express-session');
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
+app.use(flash());
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
