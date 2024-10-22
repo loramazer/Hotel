@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1f2e17;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    max-height: 0vh;  /* Define a altura máxima da página para ser a altura da tela */
+    overflow-y: auto;
+}
+
+.header-container {
+    position: relative;
+    background-color: #1f2e17;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    width: 275px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.circle-red {
+    position: absolute;
+    top: -75px;
+    right: -50px;
+    width: 325px;
+    height: 200px;
+    background-color: #7a3b2e;
+    border-radius: 50%;
+    z-index: 0;
+}
+.circle-red-left {
+    position: absolute;
+    top: 450px;
+    left: -85px;
+    width: 325px;
+    height: 325px;
+    background-color: #7a3b2e;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 1.2em;
+    line-height: 1.4;
+    font-family: "Old Standard TT", serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.header-links {
+    position: absolute;
+    top: 50px;
+    right: 80px;
+    font-size: 1em;
+}
+
+.header-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    text-align: center;
+}
+
+
+.room-card {
+    background-color: rgba(77, 111, 78, 0.5);
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.room-image {
+    width: 200px;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.room-details {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.room-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+}
+
+.room-info {
+    font-size: 1.1em;
+    margin-top: 5px;
+    font-style: normal;
+    font-family: "Trirong", serif;
+    font-weight: 200;
+}
+
+.button-availability {
+    background-color: #7a3b2e;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+}
+
+
+
+
+
+.circle-red-footer {
+    position: absolute;
+    bottom: -650px;
+    right: -160px;
+    width: 340px;
+    height: 325px;
+    background-color: #7a3b2e;
+    border-radius: 50%;
+    z-index: -1;
+}
