@@ -1,0 +1,193 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1f2e17;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    position: relative;
+    background-color: #1f2e17;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    width: 275px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.circle-red {
+    position: absolute;
+    top: -75px;
+    right: -50px;
+    width: 325px;
+    height: 200px;
+    background-color: #7a3b2e;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.circle-red-left {
+    position: absolute;
+    top: 450px;
+    left: -85px;
+    width: 325px;
+    height: 325px;
+    background-color: #7a3b2e;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.header-links {
+    position: absolute;
+    top: 50px;
+    right: 80px;
+    font-size: 1em;
+}
+
+.header-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.anchors a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+.room-section {
+    margin-bottom: 40px;
+}
+
+.room-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.room-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+}
+
+.room-overview {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.description {
+    width: 70%;
+    text-align: left;
+}
+
+.highlights {
+    width: 28%;
+    background-color: #445d43;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.reserve-btn {
+    background-color: #7a3b2e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+}
+
+.amenities-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.amenities-list li {
+    margin: 0 15px; /* Espaçamento entre os itens da lista */
+    font-size: 1.1em; /* Tamanho da fonte dos itens */
+    color: #fff; /* Cor do texto */
+}
+
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.date-input {
+    padding: 10px;
+    width: 40%;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-btn {
+    background-color: #7a3b2e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #1f2e17;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.circle-red-footer {
+    position: absolute;
+    bottom: -650px;
+    right: -160px;
+    width: 340px;
+    height: 325px;
+    background-color: #7a3b2e;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.footer-content {
+    font-size: 1.1em;
+}
