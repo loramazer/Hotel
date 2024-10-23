@@ -12,7 +12,7 @@ body {
 
 /* Header */
 .hero {
-    background-image: url('/public/img/hotel0.jpg');
+    background-image: url('/img/hotel0.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
