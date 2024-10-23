@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Otomate - Disponibilidade de Quartos</title>
+    <link rel="stylesheet" href="/public/disponibilidade/stylescopy.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-container">
+        <div class="circle-red"></div>
+        <div class="circle-red-left"></div>
+
+        <div class="logo">
+            <img src="/public/quartos/img/otomate (1).png" alt="Logo Hotel Otomate">
+        </div>
+        <div class="header-content">
+            <p>No Otomate, conforto e praticidade são nossa prioridade. Aproveite sua estadia com total comodidade e bem-estar.</p>
+        </div>
+        <div class="header-links">
+            <a href="/public/views/login.html">Login</a> | <a href="/public/views/cadastro.html">Cadastre-se</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="title">Disponibilidade</h1>
+        
+        <nav class="anchors">
+            <a href="#overview">Visão Geral</a> | 
+            <a href="#amenities">Informações e Preço</a> | 
+            <a href="#amenities">Comodidades</a> | 
+            <a href="#availability">Disponibilidade</a>
+        </nav>
+
+        <section id="overview" class="room-section">
+            <div class="room-title">Quarto solteiro</div>
+            <img class="room-image" src="/public/quartos/img/quartosolteiro.jpeg" alt="Quarto 1">
+            <div class="room-overview">
+                <div class="description">
+                    <h2>Descrição</h2>
+                    <p>Quarto prático e aconchegante, com uma cama de solteiro e móveis de madeira. A simplicidade do ambiente rústico é ideal para quem busca uma estadia tranquila. Conta com Wi-Fi gratuito e ventilador.</p>
+                </div>
+                <div class="highlights">
+                    <h3>Destaques da Acomodação</h3>
+                    <h4>Conforto e Comodidade</h4>
+                    <p>Cama de solteiro, Wi-Fi gratuito, ventilador, vista para o campo.</p>
+                    <a href="/imgsMate/quartoduplo.jpeg"> <button class="reserve-btn">Reservar Agora</button></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="amenities" class="room-section">
+            <h2>Principais Comodidades</h2>
+            <ul class="amenities-list">
+                <li>Wi-Fi gratuito</li>
+                <li>Café da manhã incluído</li>
+                <li>Perto das fazendas</li>
+                <li>Estacionamento gratuito</li>
+                <li>ventilador</li>
+            </ul>
+        </section>
+
+        <section id="availability" class="room-section">
+            <h2>Disponibilidade</h2>
+            <div class="search-bar">
+                <input type="date" class="date-input" placeholder="Check-in">
+                <input type="date" class="date-input" placeholder="Check-out">
+                <button class="search-btn">Pesquisar</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="circle-red-footer"></div>
+        <div class="footer-content">
+            Hotel Otomate<br>
+            Rodovia BR-101, Km 250, Minas Gerais<br>
+            Telefone: 31 99980-1527 | Whatsapp: 31 99732-8764
+        </div>
+    </footer>
+</body>
+</html>
